@@ -1,4 +1,4 @@
-//calculate
+//calculate THIS
 var operand1 = "";
 var operator = "";
 var pushValue = "";
