@@ -3,10 +3,11 @@ var operand1 = "";
 var operator = "";
 var pushValue = "";
 
+
 function calculate(leftOperand, operator, rightOperand, valueBox) {
   var left = Number(leftOperand)
   var right = Number(rightOperand)
-
+debugger
   if (operator === "+") {
     var result = left   + right;
     
@@ -48,6 +49,7 @@ $(".btn").click(function () {
     case "=":
       var operand2 = pushValue.slice(1, pushValue.length);
       pushValue = "";
+      debugger
       calculate(operand1, operator, operand2, valueBox);
       break;
     case "/":
@@ -86,6 +88,8 @@ $(".btn").click(function () {
       pushValue = "";
       pushValue = pushValue.concat(btnValue);
       valueBox.val(pushValue);
+      case"C":
+      pushValue = ''
       break;
     default:
       //pushValue.push(btnValue)

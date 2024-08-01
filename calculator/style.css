@@ -50,4 +50,16 @@ input{
   background-color: blue; 
   font-weight: bold; 
 }
+#valueBox{
+    background-color: burlywood;
+
+}
+.btn{
+    background-color: red;
+}
+.function{
+    background-color: black;
+    box-shadow: 0 3px 4px 0 #DBEDF3;
+    opacity: 0.5;
+}
 
