@@ -1,124 +1,111 @@
 //calculate THIS
 var operand1 = "";
 var operator = "";
-var operand2=""
+var operand2 = "";
 var pushValue = "";
+var result = $(".result")
+function calculate(leftOperand, operator, rightOperand, valueBox) {
+  var left = Number(leftOperand);
+  var right = Number(rightOperand);
+  var result;
 
-
-function calculate(leftOperand, operator, rightOperand, valueBox) { 
-  var left = Number(leftOperand)
-  var right = Number(rightOperand)
-
-  if (operator === "+") {
-    var result = left   + right;
-    valueBox.val(result);
-  } else {
-    if (operator === "-") {
-      var result = left-right
-      valueBox.val(result);
-    } else {
-      if (operator === "*") {
-        var result = left * right;
-        valueBox.val(result);
-      } else {
-        if (operator === "/") {
-          var result = left / right;
-          valueBox.val(result);
-        } else {
-          if (operator === "%") {
-            var result = left % right;
-            valueBox.val(result);
-          } else {
-            valueBox.val("error!!!!!!!");
-          }
-        }
-       
-      }
-    }
+  switch (operator) {
+    case "+":
+      result = left + right;
+      break;
+    case "-":
+      result = left - right;
+      break;
+    case "x":
+      result = left * right;
+      break;
+    case "/":
+      result = left / right;
+      break;
+    case "%":
+      result = left % right;
+      break;
+    default:
+      result = "error!!!!!!!";
   }
+  
+  valueBox.val(result);
 }
-
-
-
 
 $(".btn").click(function () {
   var btnValue = $(this).text();
   var valueBox = $("#valueBox");
 
-  
   switch (btnValue) {
     case "=":
-     operand2 = pushValue.slice(1, pushValue.length);
+      operand2 = pushValue;
       pushValue = "";
-      calculate(operand1,operator,operand2,valueBox) 
-      
+      calculate(operand1, operator, operand2, valueBox);
+      lastline(operand1,btnValue,operand2,result,operator)
       break;
-    case "/":
-      operator = "/";
-      operand1 = pushValue;
-      pushValue = "";
-      pushValue = pushValue.concat(btnValue);
-      valueBox.val(pushValue);
-      break;
-
     case "+":
-      operator = "+";
-      operand1 = pushValue;
-      pushValue = "";
-      pushValue = pushValue.concat(btnValue);
-      valueBox.val(pushValue);
-
-      break;
-    case "*":debugger
-      operator = "*";
-      operand1 = pushValue;
-      pushValue = "";
-      pushValue = pushValue.concat(btnValue);
-      valueBox.val(pushValue);
-      break;
     case "-":
-      operator = "-";
-      operand1 = pushValue;
-      pushValue = "";
-      pushValue = pushValue.concat(btnValue);
-      valueBox.val(pushValue);
-    
+    case "x":
+    case "/":
     case "%":
-      operator = "%";
+      operator = btnValue;
       operand1 = pushValue;
       pushValue = "";
-      pushValue = pushValue.concat(btnValue);
       valueBox.val(pushValue);
-      case"C":
-      pushValue = ''
+      lastline(operand1,btnValue,operand2,result,operator)
+    
+      break;
+    case "C":
+      pushValue = '';
+      operand1 = '';
+      operand2 = '';
+      operator = '';
       valueBox.val(pushValue);
-      operand1 = ''
-      operand2=''
-      operator=''
+      lastline(operand1,btnValue,operand2,result,operator)
       break;
-      case"CE":
-  var othing=valueBox.val() 
- var fetch= othing.length - 1 
- var input= othing.slice(0,fetch)
- pushValue=input
-  valueBox.val(input) 
+    case "CE":
+      pushValue = pushValue.slice(0, -1);
+      valueBox.val(pushValue);
+      lastline(operand1,btnValue,operand2,result,operator)
       break;
-      case"+/-":
-      randomButton(pushValue,valueBox)
+    case "+/-":
+      if (pushValue) {
+        if (pushValue.startsWith("-")) {
+          pushValue = pushValue.slice(1);
+        } else {
+          pushValue = "-" + pushValue;
+        }
+        valueBox.val(pushValue);
+      }
       break;
     default:
-    
-      pushValue = pushValue+btnValue;
+      pushValue += btnValue;
       valueBox.val(pushValue);
+      lastline(operand1,btnValue,operand2,result,operator)
   }
 });
-function randomButton(value,input){
-  if (value == value) {
- value = -value
-  input.val(value)
-  } else if(value == -value) {
+function lastline(operand1,btnValue,operand2,valueBox,operator){var hello =valueBox.text();
+switch (btnValue) {
+  case "+":
+    case "-":
+      case "*":
+    case"/":
+    case"%":
+valueBox.text(operand1+""+operator)
+
+
+    break;
+    case"=":
+  valueBox.text(operand1+""+operator+""+operand2+""+"=")
+ 
+    break;
+    case"C":
+ valueBox.text("History")   
+    break;
     
-    input.val( value.slice(1,value.length))
-  }
+
+
+  default:
+}
 
 }

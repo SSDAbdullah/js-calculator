@@ -68,4 +68,16 @@ grid-template-rows: 110px;
 body{
     background-color: #728d78;
 }
-
+.result{
+background-color:gray;
+font-size: 40px;
+height: 100px;
+width: 500px;
+color:black; 
+  
+}
+img{
+ height:40px ;
+ width: 40px;   
+ background-color:burlywood;
+}
