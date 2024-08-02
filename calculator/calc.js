@@ -35,7 +35,7 @@ function calculate(leftOperand, operator, rightOperand, valueBox) {
 $(".btn").click(function () {
   var btnValue = $(this).text();
   var valueBox = $("#valueBox");
-
+console.log(btnValue)
   switch (btnValue) {
     case "=":
       operand2 = pushValue;
@@ -48,6 +48,7 @@ $(".btn").click(function () {
     case "x":
     case "/":
     case "%":
+      
       operator = btnValue;
       operand1 = pushValue;
       pushValue = "";
@@ -84,11 +85,11 @@ $(".btn").click(function () {
       lastline(operand1,btnValue,operand2,result,operator)
   }
 });
-function lastline(operand1,btnValue,operand2,valueBox,operator){var hello =valueBox.text();
+function lastline(operand1,btnValue,operand2,valueBox,operator){
 switch (btnValue) {
   case "+":
     case "-":
-      case "*":
+      case "x":
     case"/":
     case"%":
 valueBox.text(operand1+""+operator)
@@ -97,10 +98,12 @@ valueBox.text(operand1+""+operator)
     break;
     case"=":
   valueBox.text(operand1+""+operator+""+operand2+""+"=")
+  
+
  
     break;
     case"C":
- valueBox.text("History")   
+ valueBox.text("cleared")   
     break;
     
 
