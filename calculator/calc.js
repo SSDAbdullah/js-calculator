@@ -1,20 +1,20 @@
 //calculate THIS
 var operand1 = "";
 var operator = "";
+var operand2=""
 var pushValue = "";
 
 
-function calculate(leftOperand, operator, rightOperand, valueBox) {
+function calculate(leftOperand, operator, rightOperand, valueBox) { 
   var left = Number(leftOperand)
   var right = Number(rightOperand)
-debugger
+
   if (operator === "+") {
     var result = left   + right;
-    
     valueBox.val(result);
   } else {
     if (operator === "-") {
-      var result = left - right;
+      var result = left-right
       valueBox.val(result);
     } else {
       if (operator === "*") {
@@ -32,6 +32,7 @@ debugger
             valueBox.val("error!!!!!!!");
           }
         }
+       
       }
     }
   }
@@ -47,10 +48,10 @@ $(".btn").click(function () {
   
   switch (btnValue) {
     case "=":
-      var operand2 = pushValue.slice(1, pushValue.length);
+     operand2 = pushValue.slice(1, pushValue.length);
       pushValue = "";
-      debugger
-      calculate(operand1, operator, operand2, valueBox);
+      calculate(operand1,operator,operand2,valueBox) 
+      
       break;
     case "/":
       operator = "/";
@@ -68,7 +69,7 @@ $(".btn").click(function () {
       valueBox.val(pushValue);
 
       break;
-    case "*":
+    case "*":debugger
       operator = "*";
       operand1 = pushValue;
       pushValue = "";
@@ -81,7 +82,7 @@ $(".btn").click(function () {
       pushValue = "";
       pushValue = pushValue.concat(btnValue);
       valueBox.val(pushValue);
-
+    
     case "%":
       operator = "%";
       operand1 = pushValue;
@@ -90,10 +91,34 @@ $(".btn").click(function () {
       valueBox.val(pushValue);
       case"C":
       pushValue = ''
+      valueBox.val(pushValue);
+      operand1 = ''
+      operand2=''
+      operator=''
+      break;
+      case"CE":
+  var othing=valueBox.val() 
+ var fetch= othing.length - 1 
+ var input= othing.slice(0,fetch)
+ pushValue=input
+  valueBox.val(input) 
+      break;
+      case"+/-":
+      randomButton(pushValue,valueBox)
       break;
     default:
-      //pushValue.push(btnValue)
+    
       pushValue = pushValue+btnValue;
       valueBox.val(pushValue);
   }
 });
+function randomButton(value,input){
+  if (value == value) {
+ value = -value
+  input.val(value)
+  } else if(value == -value) {
+    
+    input.val( value.slice(1,value.length))
+  }
+
+}

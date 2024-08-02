@@ -1,42 +1,44 @@
 
 .container{
 display: grid;
-grid-template-columns: 100px 100px 100px 100px;    
-grid-template-rows: 55px;
+grid-template-columns: 200px 200px 200px 200px;    
+grid-template-rows: 110px;
 }
-input{
-    height: 90px;
-    width: 395px;
+#valueBox{
+    height: 180px;
+    width: 790px;
+ background-color: gray;
+ font-size: 90px;
 }
     
     .container1{
         display: grid;
-        grid-template-columns: 100px 100px 100px 100px;    
-        grid-template-rows: 55px;
+        grid-template-columns: 200px 200px 200px 200px;    
+        grid-template-rows: 110px;
         
     }
     .container2{
         display: grid;
-        grid-template-columns: 100px 100px 100px 100px;    
-        grid-template-rows: 55px;
+        grid-template-columns: 200px 200px 200px 200px;    
+        grid-template-rows: 110px;
         
     }
     .container3{
         display: grid;
-        grid-template-columns: 100px 100px 100px 100px;    
-        grid-template-rows: 55px ;
+        grid-template-columns: 200px 200px 200px 200px;    
+        grid-template-rows: 110px ;
         
     }
     .container4{
         display: grid;
-        grid-template-columns: 100px 100px 100px 100px;    
-        grid-template-rows: 55px ;
+        grid-template-columns: 200px 200px 200px 200px;    
+        grid-template-rows: 110px ;
         
     }
     .container5{
         display: grid;
-        grid-template-columns: 100px 100px 100px 100px;    
-        grid-template-rows: 55px ;
+        grid-template-columns: 200px 200px 200px 200px;    
+        grid-template-rows: 110px ;
         
     }
     .back{
@@ -50,16 +52,20 @@ input{
   background-color: blue; 
   font-weight: bold; 
 }
-#valueBox{
-    background-color: burlywood;
 
-}
+   
+
+
 .btn{
-    background-color: red;
+    background-color:burlywood;
+    font-size: 40px;
 }
 .function{
     background-color: black;
     box-shadow: 0 3px 4px 0 #DBEDF3;
     opacity: 0.5;
+}
+body{
+    background-color: #728d78;
 }
 
