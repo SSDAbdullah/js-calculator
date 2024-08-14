@@ -57,8 +57,9 @@ grid-template-rows: 110px;
 
 
 .btn{
-    background-color:burlywood;
+    background-color:black;
     font-size: 40px;
+    color: gray;
 }
 .function{
     background-color: black;

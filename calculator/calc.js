@@ -27,6 +27,7 @@ function calculate(leftOperand, operator, rightOperand, valueBox) {
       break;
     default:
       result = "error!!!!!!!";
+      
   }
   
   valueBox.val(result);
